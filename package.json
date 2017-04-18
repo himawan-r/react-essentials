@@ -1,0 +1,41 @@
+{
+  "name": "react_essential",
+  "version": "1.0.0",
+  "description": "re create angular2 tutorial in react",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server"
+  },
+  "author": "I Made Himawan Raharja",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^15.0.22",
+    "@types/react-dom": "^0.14.23",
+    "autoprefixer-loader": "^3.2.0",
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.0",
+    "json-loader": "^0.5.4",
+    "node-sass": "^4.5.2",
+    "react-router": "^4.1.1",
+    "react-router-native": "^4.1.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "dependencies": {
+    "@types/react": "^15.0.22",
+    "@types/react-dom": "^0.14.23",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "underscore": "^1.8.3"
+  }
+}
