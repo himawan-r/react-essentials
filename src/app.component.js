@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Switch , Route, Redirect, Link, match} from 'react-router-dom';
+import { HashRouter as Router, Switch , Route, Redirect, Link, match} from 'react-router-dom';
 import { MediaItemListComponent } from './component/media-item-list.component';
 import { MediaItemToolbarComponent } from './component/media-item-toolbar.component';
 import { MediaItemFormComponent } from './component/media-item-form.component';
@@ -62,7 +62,7 @@ export class AppComponent extends Component{
       name: "Happy Joe: Cheery Road",
       medium: "Movies",
       category: "Action",
-      year: 2015,
+      year: 2019,
       rating: 2.7,
       watchedOn: 1457166565384,
       isFavorite: false,
@@ -70,24 +70,22 @@ export class AppComponent extends Component{
     }
   ];
 
-    constructor(props) {
-        super(props);
-    }
+  newMediaItem(mediaItem) {
+      this.mediaItems.push(mediaItem);
+  }
     
     render() {
-
-        const { match } = this.props;
-        console.log(match);
         return (
+            <Router>
             <div id="app-id"> 
                 <nav>
-                    <Link to={`${match.url}/all`}>
+                    <Link to='/list/all'>
                         <img src={require('./media/04.png')} className="icon" />
                     </Link>
-                    <Link to={`${match.url}/movies`}>
+                    <Link to='/list/movies'>  
                         <img src={require('./media/03.png')} className="icon" />
                     </Link>
-                    <Link to={`${match.url}/series`}>
+                    <Link to='/list/series'>
                         <img src={require('./media/02.png')} className="icon" />
                     </Link> 
                 </nav>
@@ -97,15 +95,18 @@ export class AppComponent extends Component{
                         <p className="description">Keeping track of the media I want to watch.</p>
                     </header>
                     <div className="MainStyle">
+                    
                         <Switch>
-                            <Route path={match.url} component={MediaItemListComponent} mediaItems={this.mediaItems}/>
-                            <Route path={`${match.url}/:medium`} component={MediaItemListComponent}/>
-                            <Route path="/form" component={MediaItemFormComponent}/>
+                            <Route exact path="/" component={MediaItemListComponent}/>
+                            <Route path="/list/:medium?" render={props => <MediaItemListComponent mediaItems={this.mediaItems} {...props}/>}/>
+                            <Route path="/form" render={props => <MediaItemFormComponent newMediaItem={this.newMediaItem.bind(this)} {...props} />}/>
                             <Route component={Whoops404} />
                         </Switch>
+                    
                     </div>
                 </section>
             </div>
+            </Router>
         )
     }
 }
