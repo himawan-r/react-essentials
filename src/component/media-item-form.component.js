@@ -17,7 +17,10 @@ export class MediaItemFormComponent extends Component{
             medium: this.refs.medium.value,
             name: this.refs.name.value,
             category: this.refs.category.value,
-            year: this.refs.year.value
+            year: this.refs.year.value,
+            rating: 5,
+            watchedOn: true,
+            isFavorite: false
         });
         
         this.refs.medium.value = "Series";
@@ -76,4 +79,8 @@ MediaItemFormComponent.defaultProps = {
     name : '',
     category : 'Drama',
     year : '2017'
+}
+
+MediaItemFormComponent.propTypes = { 
+    newMediaItem: PropTypes.func.isRequired
 }
